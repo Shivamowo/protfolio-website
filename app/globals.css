@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-bebas);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+/* Floating / parallax helpers */
+@keyframes float {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -22px, 0) rotate(3deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+.float-soft {
+  animation: float 10s ease-in-out infinite;
+}
+
+.float-soft-delayed {
+  animation: float 12s ease-in-out infinite;
+}
+
+.float-soft-rotate {
+  animation: float-slow 14s ease-in-out infinite;
+}
+
+/* Hero grid subtle motion */
+@keyframes hero-grid-shift {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate3d(-12px, -8px, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.9;
+  }
+}
+
+.hero-grid-animate {
+  animation: hero-grid-shift 26s ease-in-out infinite;
+}
+
+/* Skill tag stagger (relies on data-visible on section) */
+.skill-tag {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+[data-visible="true"] .skill-tag {
+  opacity: 1;
+  transform: translateY(0);
+}
