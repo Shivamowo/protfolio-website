@@ -67,22 +67,50 @@ function FadeInSection({
   );
 }
 
-const projects = [
+const projects = Array.from({ length: 4 }, () => ({
+  title: "COMING SOON",
+  description: "Case Study in Progress",
+}));
+
+const socialLinks = [
   {
-    title: "Product Dashboard",
-    description: "Data‑heavy SaaS dashboard with sharp typography and clear hierarchy.",
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/shivam-chowdhary-326228273/",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-4 w-4 fill-current"
+      >
+        <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.08 1 2.5 1s2.48 1.12 2.48 2.5zM.32 8.16H4.7V24H.32V8.16zM8.55 8.16h4.19v2.15h.06c.58-1.1 2-2.26 4.11-2.26 4.4 0 5.21 2.9 5.21 6.68V24h-4.38v-8.07c0-1.92-.03-4.39-2.68-4.39-2.68 0-3.09 2.09-3.09 4.25V24H8.55V8.16z" />
+      </svg>
+    ),
   },
   {
-    title: "Mobile Banking",
-    description: "Clean mobile flows focused on trust, clarity, and motion.",
+    name: "GitHub",
+    href: "https://github.com/Shivamowo",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-4 w-4 fill-current"
+      >
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.06-.02-2.08-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.35-1.76-1.35-1.76-1.1-.75.08-.74.08-.74 1.22.09 1.86 1.25 1.86 1.25 1.08 1.84 2.83 1.31 3.52 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.46 11.46 0 0 1 3.01-.4c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.81 1.11.81 2.24 0 1.62-.01 2.93-.01 3.33 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12C24 5.37 18.63 0 12 0z" />
+      </svg>
+    ),
   },
   {
-    title: "Portfolio Concept",
-    description: "Editorial, brutalist portfolio layout with strong grids.",
-  },
-  {
-    title: "E‑commerce Redesign",
-    description: "Conversion‑focused UI with bold visuals and intuitive filters.",
+    name: "Instagram",
+    href: "https://www.instagram.com/shivam.__.e/",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-4 w-4 fill-current"
+      >
+        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.51 5.51 0 0 0 12 7.5zm0 2A3.5 3.5 0 1 1 8.5 13 3.5 3.5 0 0 1 12 9.5zM18 6.25a1.25 1.25 0 1 1-2.5 0A1.25 1.25 0 0 1 18 6.25z" />
+      </svg>
+    ),
   },
 ];
 
@@ -285,7 +313,7 @@ export default function Home() {
               }}
             >
               <Image
-                src="/profile.jpg"
+                src="/hero-profile.png"
                 alt="Profile"
                 fill
                 className="object-cover grayscale"
@@ -393,11 +421,18 @@ export default function Home() {
             {projects.map((project) => (
               <article
                 key={project.title}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/60 shadow-[0_0_0_rgba(0,0,0,0)] transition-transform duration-200 hover:-translate-y-3 hover:shadow-[0_18px_35px_rgba(0,0,0,0.55)]"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/60 shadow-[0_0_0_rgba(0,0,0,0)] transition-transform duration-200 hover:-translate-y-2 hover:shadow-[0_14px_28px_rgba(0,0,0,0.5)]"
               >
                 {/* Image placeholder */}
                 <div className="relative h-40 w-full overflow-hidden bg-zinc-200">
-                  <div className="absolute inset-0 bg-gradient-to-br from-zinc-300 to-zinc-100 transition-transform duration-500 ease-out group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-zinc-300 to-zinc-100 transition-transform duration-500 ease-out group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-black/55 backdrop-blur-[1.5px] transition-opacity duration-300 group-hover:bg-black/60" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-xs uppercase tracking-[0.22em] text-zinc-100">
+                    <span className="text-sm md:text-base">COMING SOON</span>
+                    <span className="mt-1 text-[0.6rem] text-zinc-300">
+                      Case Study in Progress
+                    </span>
+                  </div>
                 </div>
 
                 <div className="flex flex-1 flex-col justify-between px-5 py-5 space-y-3">
@@ -408,10 +443,16 @@ export default function Home() {
                     <p className="text-sm text-zinc-400">
                       {project.description}
                     </p>
+                    <p className="mt-2 text-[0.7rem] uppercase tracking-[0.22em] text-zinc-500 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                      Project launching soon
+                    </p>
                   </div>
-                  <button className="mt-1 inline-flex items-center text-xs font-medium uppercase tracking-[0.18em] text-[#EDEDED] opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1">
-                    View case study
-                    <span className="ml-2 h-[1px] w-6 bg-[#EDEDED]" />
+                  <button
+                    type="button"
+                    className="mt-1 inline-flex items-center text-xs font-medium uppercase tracking-[0.18em] text-zinc-500 opacity-80 cursor-default"
+                  >
+                    Project launching soon
+                    <span className="ml-2 h-[1px] w-6 bg-zinc-600" />
                   </button>
                 </div>
                 <div className="relative h-3 w-full overflow-hidden bg-yellow-400/30">
@@ -607,13 +648,21 @@ export default function Home() {
               <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">
                 Social
               </h3>
-              <ul className="space-y-2 text-sm">
-                {["LinkedIn", "Behance", "Dribbble", "GitHub"].map((social) => (
-                  <li key={social}>
-                    <button className="group inline-flex items-center gap-2 text-zinc-300 transition-colors hover:text-yellow-400">
-                      <span>{social}</span>
+              <ul className="flex flex-wrap gap-3 text-sm">
+                {socialLinks.map((social) => (
+                  <li key={social.name}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950/80 px-3 py-2 text-zinc-300 transition-colors hover:text-yellow-400 hover:border-yellow-400/70"
+                    >
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-900 text-xs transition-colors group-hover:bg-yellow-400 group-hover:text-black">
+                        {social.icon}
+                      </span>
+                      <span>{social.name}</span>
                       <span className="h-[1px] w-6 bg-zinc-600 transition-all duration-200 group-hover:w-10 group-hover:bg-yellow-400" />
-                    </button>
+                    </a>
                   </li>
                 ))}
               </ul>
